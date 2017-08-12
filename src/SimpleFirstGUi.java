@@ -1,22 +1,32 @@
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
+import java.awt.event.*;
 import javax.swing.*;
 
 public class SimpleFirstGUi extends JFrame {
 		
-	public	JFrame frame = new JFrame("Special messenger for Japanese groups");
+		JFrame frame = new JFrame("Special messenger for Japanese groups");
 		JButton toBlock = new JButton("Block screen");
-
+		Color color = toBlock.getBackground();
+		JPasswordField passwordField = new JPasswordField(10);
+		JButton passwordButton = new JButton("Я ввів парольку");
+		
 		SimpleFirstGUi(){
+			
 		frame.setSize(800, 555);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
+		frame.setLayout(new GridBagLayout());
+		toBlock.setCursor(new Cursor(Cursor.MOVE_CURSOR));
 		
 		frame.add(toBlock);
 		toBlock.addActionListener(new toBlockEventListener());
+		passwordButton.addActionListener(new passwordButtonEventListener());
 		frame.setLocation(300, 100);
+		
+	//	passwordField.setText("Введіть парольку, будь ласка");
+		frame.add(passwordField);
+		frame.add(passwordButton);
+		
 		}
 		
 		public class toBlockEventListener implements ActionListener {
@@ -26,19 +36,46 @@ public class SimpleFirstGUi extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				if (!flag) {
-					frame.setDefaultCloseOperation(EXIT_ON_CLOSE);;
+					frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+					toBlock.setText("Block screen");
 					flag  = true;
-					System.out.println("exit_on: " + flag);
+					toBlock.setBackground(color);
 				} else {
 //					frame.setUndecorated(true); //забирає рамки
 					frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);// робить хрестик не функціональним
 					flag = false;
-					System.out.println("exit_on: " + flag);
-					toBlock.setName("Unblock");
+					toBlock.setText("Unblock screen");
+					toBlock.setBackground(Color.RED);
 				}
 			}
 
 		}
+		
+		
+		public class passwordButtonEventListener implements ActionListener {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+
+				char[] enteredPassword = passwordField.getPassword();
+				char[] password = {'a', 'n', 't', 'o', 'n'};
+				int good = 0;
+				
+				for (int i = 0; i < password.length; i++) {
+					if (password[i] == enteredPassword[i]) {
+						good++;
+					}
+				}
+				
+				if (good == 5) {
+					passwordButton.setText("ПАРОЛЬКУ ПРИНЯТО!");
+				} else {
+					passwordButton.setText("ВВЕДІТЬ ЩЕ РАЗ!");
+				}
+			}
+
+		}
+
 }
 
 
