@@ -1,20 +1,20 @@
 import java.awt.*;
 import javax.swing.*;
 
-public class RegistrationGUI {
+public class Authorization {
 
- static	JFrame registrationField = new JFrame("Реєстрація");
+ static	JFrame registrationField = new JFrame("Авторизація");
 	
 	JLabel passwordLabel = new JLabel("            ↓ПАРОЛЬ↓ ");
 	JLabel emailLabel = new JLabel("           ↓ПОШТА↓             i");
-	JButton registrationButton = new JButton("Зареєструвати");
+	JButton authorizationButton = new JButton("Авторизуватися");
 	static JPasswordField passwordField = new JPasswordField(10);
 	static JTextField emailField = new JTextField(10);	
 	JPanel upper = new JPanel();
 	JPanel center = new JPanel();
 	
 	
-	public RegistrationGUI() {
+	public Authorization() {
 		registrationField.setVisible(true);
 		registrationField.setLayout(new BorderLayout());
 		upper.setLayout(new GridLayout());
@@ -29,10 +29,10 @@ public class RegistrationGUI {
 		center.add(emailField);
 		center.add(passwordField);
 		
-		registrationField.add(registrationButton, BorderLayout.SOUTH);
+		registrationField.add(authorizationButton, BorderLayout.SOUTH);
 		registrationField.pack();
 		
-		registrationButton.addActionListener(new registrationButtonEventListener());
+		authorizationButton.addActionListener(new registrationButtonEventListener());
 	}
 	
 	
