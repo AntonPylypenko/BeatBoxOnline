@@ -9,6 +9,7 @@ public class SimpleFirstGUi extends JFrame {
 		Color color = toBlock.getBackground();
 		JPasswordField passwordField = new JPasswordField(10);
 		JButton passwordButton = new JButton("Я ввів парольку");
+	//	JButton snakeButton = new JButton("Хочу грати в червячка!");
 		
 		SimpleFirstGUi(){
 			
@@ -21,11 +22,16 @@ public class SimpleFirstGUi extends JFrame {
 		frame.add(toBlock);
 		toBlock.addActionListener(new toBlockEventListener());
 		passwordButton.addActionListener(new passwordButtonEventListener());
+	//	snakeButton.addActionListener(new snakeButtonEventListener());
+		
 		frame.setLocation(300, 100);
 		
-	//	passwordField.setText("Введіть парольку, будь ласка");
+		passwordField.setText("Введіть парольку, будь ласка");
 		frame.add(passwordField);
 		frame.add(passwordButton);
+	//	frame.add(snakeButton);
+		
+		
 		
 		}
 		
@@ -35,6 +41,8 @@ public class SimpleFirstGUi extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
+				toBlock.setVisible(false);
+				
 				if (!flag) {
 					frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 					toBlock.setText("Block screen");
@@ -69,13 +77,26 @@ public class SimpleFirstGUi extends JFrame {
 				
 				if (good == 5) {
 					passwordButton.setText("ПАРОЛЬКУ ПРИНЯТО!");
+					toBlock.setVisible(true);
 				} else {
 					passwordButton.setText("ВВЕДІТЬ ЩЕ РАЗ!");
 				}
 			}
 
 		}
+		
+/*		public class snakeButtonEventListener implements ActionListener {
 
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+						
+			//	snakeButton.setVisible(false);
+				
+			//	GameSnake snake = new GameSnake();
+			//	snake.go();
+			}
+		}
+*/
 }
 
 
