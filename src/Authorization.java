@@ -8,8 +8,8 @@ public class Authorization {
 	JLabel passwordLabel = new JLabel("            ↓ПАРОЛЬ↓ ");
 	JLabel emailLabel = new JLabel("           ↓ПОШТА↓             i");
 	JButton authorizationButton = new JButton("Авторизуватися");
-	static JPasswordField passwordField = new JPasswordField(10);
-	static JTextField emailField = new JTextField(10);	
+	static JPasswordField AuthoPasswordField = new JPasswordField(10);
+	static JTextField AuthoEmailField = new JTextField(10);	
 	JPanel upper = new JPanel();
 	JPanel center = new JPanel();
 	
@@ -26,13 +26,13 @@ public class Authorization {
 		
 		upper.add(emailLabel);
 		upper.add(passwordLabel);
-		center.add(emailField);
-		center.add(passwordField);
+		center.add(AuthoEmailField);
+		center.add(AuthoPasswordField);
 		
 		registrationField.add(authorizationButton, BorderLayout.SOUTH);
 		registrationField.pack();
 		
-		authorizationButton.addActionListener(new registrationButtonEventListener());
+		authorizationButton.addActionListener(new authorizationButtonEventListener());
 	}
 	
 	

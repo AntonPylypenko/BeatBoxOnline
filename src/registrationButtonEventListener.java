@@ -6,12 +6,14 @@ import java.io.IOException;
 
 public class registrationButtonEventListener implements ActionListener {
 
-	File file = new File("emailpass.txt");
+	static File file = new File("emailpass.txt");
 	private String password = null;
 	boolean flag = false; 
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
+		
+		
 		
 		try {
 			FileWriter fw = new FileWriter(file);
@@ -35,7 +37,9 @@ public class registrationButtonEventListener implements ActionListener {
 			if (!flag) RegistrationGUI.registrationField.setVisible(false);
 		
 	//	System.out.println(RegistrationGUI.emailField.getText());
-		System.out.println(flag);
+	//	System.out.println(flag);
+		
+		
 	}
 
 }
