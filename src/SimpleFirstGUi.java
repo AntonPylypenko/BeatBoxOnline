@@ -5,20 +5,34 @@ import javax.swing.*;
 public class SimpleFirstGUi extends JFrame {
 		
 		JFrame frame = new JFrame("Спец-проєкт)");
+		
+		JPasswordField passwordField = new JPasswordField(10);
+		JTextField minutesNumberField = new JTextField("Введіть кількість хвилин...");
+		
 		JButton toBlock = new JButton("Заблокувати екран");
 		Color color = toBlock.getBackground();
-		JPasswordField passwordField = new JPasswordField(10);
+		
 		JButton passwordButton = new JButton("Я ввів парольку");
 		JButton snakeButton = new JButton("Хочу грати в червячка!");
+		JButton inFifteenMinButton = new JButton("Через 15 хв.");
+		JButton selfOpinionButton = new JButton("Відправлю по-своєму!");
 		
-		JLabel specialFunctionsLabel = new JLabel("Спеціальні\r\n можливості");
+		JLabel specialFunctionsLabel = new JLabel("Спеціальні можливості");
+		JLabel sentMessageLabel = new JLabel("Відправити \n повідомлення через: ");
+		JLabel optionLabel = new JLabel("Опціонально: ");
 		
 		JPanel westPanel  = new JPanel();
 		JPanel eastPanel  = new JPanel();
 		JPanel southPanel = new JPanel();
 		JPanel northPanel = new JPanel(); 
+		JPanel westPanelNorth = new JPanel();
+		JPanel westPanelSouth = new JPanel();
+		GridLayout gridNorth = new GridLayout(4, 0);
+		GridLayout gridSouth = new GridLayout(4, 0);
 		
 		SimpleFirstGUi(){
+		
+		gridNorth.setVgap(5);	
 			
 		frame.setSize(800, 555);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -32,19 +46,32 @@ public class SimpleFirstGUi extends JFrame {
 		frame.add(northPanel, BorderLayout.NORTH);
 		frame.add(southPanel, BorderLayout.SOUTH);
 		
-		westPanel.add(specialFunctionsLabel);
-		westPanel.add(toBlock);
-		toBlock.setVisible(false);
+		westPanel.setLayout(new BorderLayout());
+		westPanel.add(westPanelNorth, BorderLayout.NORTH);
+		westPanelNorth.setLayout(gridNorth);
 		
-		westPanel.add(passwordField);
-		westPanel.add(passwordButton);
+		westPanelNorth.add(specialFunctionsLabel);
+		westPanelNorth.add(toBlock);
+	//	toBlock.setVisible(false);
+		westPanelNorth.add(passwordField);
+		westPanelNorth.add(passwordButton);
+		
+		westPanel.add(westPanelSouth, BorderLayout.CENTER);
+		westPanelSouth.setLayout(new GridLayout(15, 0));
+		westPanelSouth.add(sentMessageLabel);	
+		westPanelSouth.add(inFifteenMinButton);
+		westPanelSouth.add(optionLabel);
+		westPanelSouth.add(minutesNumberField);
+		westPanelSouth.add(selfOpinionButton);
+		
+		
 		eastPanel.add(snakeButton);
 		
 	//	passwordField.setText("Введіть парольку, будь ласка");
 	//  passwordButton.addActionListener(new passwordButtonEventListener());
 	//	snakeButton.addActionListener(new snakeButtonEventListener());
 	//	toBlock.addActionListener(new toBlockEventListener());	
-		
+	//	frame.pack();
 		}
 		
 		public class toBlockEventListener implements ActionListener {
