@@ -6,8 +6,9 @@ public class SimpleFirstGUi extends JFrame {
 		
 		JFrame frame = new JFrame("Спец-проєкт)");
 		
-		JPasswordField passwordField = new JPasswordField(10);
+		JPasswordField passwordField = new JPasswordField();
 		JTextField minutesNumberField = new JTextField("Введіть кількість хвилин...");
+		JLabel defisLabel = new JLabel("-------------------------------------");
 		
 		JButton toBlock = new JButton("Заблокувати екран");
 		Color color = toBlock.getBackground();
@@ -47,14 +48,12 @@ public class SimpleFirstGUi extends JFrame {
 		frame.add(southPanel, BorderLayout.SOUTH);
 		
 		westPanel.setLayout(new BoxLayout(westPanel, BoxLayout.Y_AXIS));
-		westPanel.add(westPanelNorth, BorderLayout.NORTH);
-		westPanelNorth.setLayout(gridNorth);
-		
-		westPanelNorth.add(specialFunctionsLabel);
-		westPanelNorth.add(toBlock);
+		westPanel.add(specialFunctionsLabel);
+		westPanel.add(toBlock);
 	//	toBlock.setVisible(false);
-		westPanelNorth.add(passwordField);
-		westPanelNorth.add(passwordButton);
+		westPanel.add(passwordField);
+		westPanel.add(passwordButton);
+		westPanel.add(defisLabel);
 		
 		westPanel.add(westPanelSouth, BorderLayout.CENTER);
 		westPanelSouth.setLayout(new GridLayout(15, 0));
