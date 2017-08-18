@@ -46,7 +46,7 @@ public class SimpleFirstGUi extends JFrame {
 		frame.add(northPanel, BorderLayout.NORTH);
 		frame.add(southPanel, BorderLayout.SOUTH);
 		
-		westPanel.setLayout(new BorderLayout());
+		westPanel.setLayout(new BoxLayout(westPanel, BoxLayout.Y_AXIS));
 		westPanel.add(westPanelNorth, BorderLayout.NORTH);
 		westPanelNorth.setLayout(gridNorth);
 		
