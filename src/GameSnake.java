@@ -36,11 +36,11 @@ public class GameSnake {
     Canvas canvasPanel;
     Random random = new Random();
     boolean gameOver = false;
- 
-  //  public static void main(String[] args) {
-  //      new GameSnake().go();
-  //  }
-     
+    /*
+    public static void main(String[] args) {
+        new GameSnake().go();
+    }
+   */
    public void go() {
         frame = new JFrame(TITLE_OF_PROGRAM + " : " + START_SNAKE_SIZE);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

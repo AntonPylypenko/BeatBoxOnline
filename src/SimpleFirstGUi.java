@@ -4,23 +4,28 @@ import javax.swing.*;
 
 public class SimpleFirstGUi extends JFrame {
 		
-		JFrame frame = new JFrame("Спец-проєкт)");
+		JFrame frame = new JFrame("Спєц-проєкт)");
 		
 		JPasswordField passwordField = new JPasswordField();
 		JTextField minutesNumberField = new JTextField("Введіть кількість хвилин...");
 		JLabel defisLabel = new JLabel("-------------------------------------");
+		JLabel eastDefisLabel = new JLabel("-------------------------------------");
 		
-		JButton toBlockButton = new JButton("Заблокувати екран");
+		JButton toBlockButton = new JButton("Заблокувати вікно");
 		Color color = toBlockButton.getBackground();
 		
 		JButton passwordButton = new JButton("Я ввів парольку");
-		JButton snakeButton = new JButton("Хочу грати в червячка!");
+		JButton snakeButton = new JButton("Хочу грати в Змійку!");
 		JButton inFifteenMinButton = new JButton("Через 15 хв.");
 		JButton selfOpinionButton = new JButton("<html>Відправлю <p> по-своєму!<html>");
+		JButton paintButton = new JButton("<html>Намалювати<p>автопортрет!<html>");
+		JButton exitButton = new JButton("EXIT  →");
+		JButton windowSetButton = new JButton("<html>Set default <p>window size!<html>");
 		
-		JLabel specialFunctionsLabel = new JLabel("  Спеціальні можливості");
+		JLabel specialFunctionsLabel = new JLabel("       Заблокувати вікно");
 		JLabel sentMessageLabel = new JLabel("<html>Відправити<p>повідомлення через: <html>");
 		JLabel optionLabel = new JLabel("Опціонально: ");
+		JLabel entertainmentLabel = new JLabel("                 Розваги: ");
 		
 		JPanel westPanel  = new JPanel();
 		JPanel eastPanel  = new JPanel();
@@ -71,6 +76,7 @@ public class SimpleFirstGUi extends JFrame {
 	/** Верхня західна частина */		
 		frame.add(specialFunctionsLabel);
 		frame.add(toBlockButton);
+		toBlockButton.setVisible(false);
 		frame.add(passwordField);
 		frame.add(passwordButton);
 		frame.add(defisLabel);
@@ -82,7 +88,7 @@ public class SimpleFirstGUi extends JFrame {
 		frame.add(minutesNumberField);
 		frame.add(selfOpinionButton);
 
-	/** Налаштовуємо координацію */	
+	/** Налаштовуємо координацію на заході*/	
 		specialFunctionsLabel.setBounds(20, 20, 150, 25);
 		toBlockButton.setBounds(20, 50, 150, 25);
 		passwordField.setBounds(20, 80, 150, 25);
@@ -91,23 +97,40 @@ public class SimpleFirstGUi extends JFrame {
 		
 		sentMessageLabel.setBounds(20, 200, 150, 25);
 		inFifteenMinButton.setBounds(20, 230, 150, 25);
-		optionLabel.setBounds(20, 260, 150, 25);
+		optionLabel.setBounds(20, 270, 150, 25);
 		minutesNumberField.setBounds(20, 290, 150, 25);
 		selfOpinionButton.setBounds(20, 320, 150, 40);
 		
-	//	toBlockButton.addActionListener(new toBlockButtonEventListener());	
-	//	passwordField.setText("Введіть парольку, будь ласка");
-	//  passwordButton.addActionListener(new passwordButtonEventListener());
-	//	snakeButton.addActionListener(new snakeButtonEventListener());
+	/** Верхня східна частина */
+		frame.add(entertainmentLabel);
+		frame.add(snakeButton);
+		frame.add(paintButton);
+		frame.add(eastDefisLabel);
+		frame.add(exitButton);
+		frame.add(windowSetButton);
+		
+	/** Налаштовуємо координацію на сході*/
+		entertainmentLabel.setBounds(610, 20, 150, 25);
+		snakeButton.setBounds(610, 50, 150, 25);
+		paintButton.setBounds(610, 80, 150, 50);
+		eastDefisLabel.setBounds(610, 135, 150, 25);
+		exitButton.setBounds(610, 320, 150, 40);
+		windowSetButton.setBounds(610, 270, 150, 40);
+		
+	/** Налаштовую дієздатність кнопок */	
+		toBlockButton.addActionListener(new toBlockButtonEventListener());	
+	    passwordButton.addActionListener(new passwordButtonEventListener());
+		snakeButton.addActionListener(new snakeButtonEventListener());
+		paintButton.addActionListener(new paintButtonEventListener());
 	//	frame.pack();
 		}
-
+		 
+		
 			
 		
-	/*	
+		
+		private boolean flag = true;
 		public class toBlockButtonEventListener implements ActionListener {
-
-			private boolean flag = true;
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
@@ -117,20 +140,19 @@ public class SimpleFirstGUi extends JFrame {
 					frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 					toBlockButton.setText("Block screen");
 					flag  = true;
-					toBlock.setBackground(color);
+					toBlockButton.setBackground(color);
 				} else {
 //					frame.setUndecorated(true); //забирає рамки
-					frameButton.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);// робить хрестик не функціональним
+					frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);// робить хрестик не функціональним
 					flag = false;
-					toBlock.setText("Unblock screen");
-					toBlock.setBackground(Color.RED);
+					toBlockButton.setText("Unblock screen");
+					toBlockButton.setBackground(Color.RED);
 				}
 			}
-*/
+		}
 		
 		
-		
-	/*	public class passwordButtonEventListener implements ActionListener {
+		public class passwordButtonEventListener implements ActionListener {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
@@ -147,26 +169,25 @@ public class SimpleFirstGUi extends JFrame {
 				
 				if (good == 5) {
 					passwordButton.setText("ПАРОЛЬКУ ПРИНЯТО!");
-					toBlock.setVisible(true);
+					toBlockButton.setVisible(true);
 				} else {
 					passwordButton.setText("ВВЕДІТЬ ЩЕ РАЗ!");
 				}
-			}
-*/
 		}
-	/*
+	}
+	
 		public class snakeButtonEventListener implements ActionListener {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 						
-			//	snakeButton.setVisible(false);
+		//	snakeButton.setVisible(false);
 				
-			//	GameSnake snake = new GameSnake();
-			//	snake.go();
+		//	GameSnake snake = new GameSnake();
+			new GameSnake().go();
 			}
 		}
-	*/
-
+	
+}
 
 
