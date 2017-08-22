@@ -44,7 +44,7 @@ public class SimpleFirstGUi extends JFrame {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 		toBlockButton.setCursor(new Cursor(Cursor.MOVE_CURSOR));
-		frame.setLocation(300, 100);
+		frame.setLocationRelativeTo(null);
 		frame.setLayout(null);
 		
 		/** Недороблений код з диспетчерами компоновки*/

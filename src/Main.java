@@ -11,7 +11,9 @@ public class Main {
 	public static void main(String[] args) {
 		
 
-		new SimpleFirstGUi();
+		new BeatBoxGUI();
+		
+	//	new SimpleFirstGUi();
 		
 	/*	if (registrationButtonEventListener.file.exists()) {
 			new Authorization();
