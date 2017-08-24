@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.util.*;
 import javax.swing.*;
 
 public class BeatBoxGUI extends JFrame {
@@ -8,7 +9,7 @@ public class BeatBoxGUI extends JFrame {
 	JPanel centerPanel = new JPanel();
 	JPanel eastPanel = new JPanel();
 	
-	JCheckBox checkBox = new JCheckBox();
+	ArrayList<JCheckBox> checkBoxList;
 	
     int[] instruments = {35,42,46,38,49,39,50,60,70,72,64,56,58,47,67,63};
 	
@@ -24,16 +25,17 @@ public class BeatBoxGUI extends JFrame {
 		frame.setSize(800, 555);
 		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		frame.setVisible(true);
-		frame.setLocationRelativeTo(null); //вирівнює по центру
+		frame.setLocationRelativeTo(null); //СЂРѕР·РјС–С‰Р°С” С„СЂРµР№Рј РїРѕ С†РµРЅС‚СЂСѓ
 		
 		frame.add(westPanel, BorderLayout.WEST);
 		frame.add(centerPanel, BorderLayout.CENTER);
 		frame.add(eastPanel, BorderLayout.EAST);
 		
 		westPanel.add(instrumentList);
-		for (int i = 0; i < 256; i++) {
-			centerPanel.add(checkBox);
+		for (int i = 0; i < 8; i++) {
+			centerPanel.add(new JCheckBox());
 		}
+//		centerPanel.getC
 		
 		westPanel.setBackground(Color.YELLOW);
 		centerPanel.setBackground(Color.BLUE);

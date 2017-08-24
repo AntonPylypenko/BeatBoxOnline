@@ -1,5 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.time.LocalDateTime;
+
 import javax.swing.*;
 
 public class SimpleFirstGUi extends JFrame {
@@ -122,6 +124,22 @@ public class SimpleFirstGUi extends JFrame {
 	    passwordButton.addActionListener(new passwordButtonEventListener());
 		snakeButton.addActionListener(new snakeButtonEventListener());
 		paintButton.addActionListener(new paintButtonEventListener());
+		
+	/** Налаштовую Час та Дату, їх розміщення */
+		do {
+			LocalDateTime timeDate = LocalDateTime.now();
+			JLabel timeLabel = new JLabel(timeDate.toString());
+			frame.add(timeLabel);
+			timeLabel.setBounds(300, 475, 150, 25);
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				System.out.println("Так собі поток!");
+			};
+			timeLabel.setVisible(false);
+		}while(true);
+		
+		
 	//	frame.pack();
 		}
 		 
