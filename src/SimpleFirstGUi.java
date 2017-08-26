@@ -263,9 +263,9 @@ public static  JFrame frame = new JFrame("Спєц-проєкт)");
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {	
-				JFrame frame = new JFrame("Ось, що тобі потрібно!");
-				frame.setVisible(true);
-				frame.setLocationRelativeTo(null);
+				JFrame adviceframe = new JFrame("Ось, що тобі потрібно!");
+				adviceframe.setVisible(true);
+				adviceframe.setLocationRelativeTo(frame);
 				
 				String[] str = {"Сижу я на парі і думку гадаю, чому я лапух, чому ніц не знаю...",
 								"Забий на все, доля сама вирішить..."}; 
@@ -273,12 +273,11 @@ public static  JFrame frame = new JFrame("Спєц-проєкт)");
 				String adviceStr = str[(int)Math.random()];
 				JLabel adviceLabel = new JLabel(adviceStr);
 				adviceLabel.setFont(font);
-				frame.add(adviceLabel);
+				adviceframe.add(adviceLabel);
 				adviceLabel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-
 				
 			//	frame.setLayout();
-				frame.pack();
+				adviceframe.pack();
 			}
 
 		}
