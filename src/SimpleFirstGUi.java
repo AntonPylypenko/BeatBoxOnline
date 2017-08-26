@@ -3,6 +3,7 @@ import java.awt.event.*;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.*;
+import java.math.*;
 
 import javax.swing.*;
 
@@ -28,6 +29,7 @@ public static  JFrame frame = new JFrame("Спєц-проєкт)");
 		JButton exitButton = new JButton("EXIT  →");
 		JButton windowSetButton = new JButton("<html>Встановити<p>нормальний розмір!<html>");
 		JButton beatBoxGuiButton = new JButton("Відкрити BeatBox");
+		JButton adviceButton = new JButton("Я щось хочу від життя, дай пораду для мого буття!");
 		
 		JLabel specialFunctionsLabel = new JLabel("       Заблокувати вікно");
 		JLabel sentMessageLabel = new JLabel("<html>Відправити<p>повідомлення через: <html>");
@@ -126,9 +128,11 @@ public static  JFrame frame = new JFrame("Спєц-проєкт)");
 		
 	/** Центральна частина */
 		frame.add(beatBoxGuiButton);
+		frame.add(adviceButton);
 		
 	/** Налаштовуємо кординацію по центру*/	
 		beatBoxGuiButton.setBounds(300, 20, 200, 20);
+		adviceButton.setBounds(200, 475, 380, 25);
 		
 	/** Налаштовую шрифт розміток*/
 		specialFunctionsLabel.setFont(font);
@@ -145,6 +149,7 @@ public static  JFrame frame = new JFrame("Спєц-проєкт)");
 		exitButton.addActionListener(new exitButtonEventListener());
 		windowSetButton.addActionListener(new windowSetButtonEventListener());
 		beatBoxGuiButton.addActionListener(new beatBoxGuiButtonEventListener());
+		adviceButton.addActionListener(new adviceButtonEventListener());
 		
 	/** Налаштовую Час та Дату, їх розміщення */
 		do {
@@ -175,11 +180,8 @@ public static  JFrame frame = new JFrame("Спєц-проєкт)");
 		
 	//	frame.pack();
 		}
-		 
 		
-			
-		
-		
+	/** Реалізація кнопок */	
 		private boolean flag = true;
 		public class toBlockButtonEventListener implements ActionListener {
 			
@@ -253,6 +255,30 @@ public static  JFrame frame = new JFrame("Спєц-проєкт)");
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				   frame.setExtendedState(JFrame.NORMAL);          
+			}
+
+		}
+		
+		public class adviceButtonEventListener implements ActionListener {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {	
+				JFrame frame = new JFrame("Ось, що тобі потрібно!");
+				frame.setVisible(true);
+				frame.setLocationRelativeTo(null);
+				
+				String[] str = {"Сижу я на парі і думку гадаю, чому я лапух, чому ніц не знаю...",
+								"Забий на все, доля сама вирішить..."}; 
+				
+				String adviceStr = str[(int)Math.random()];
+				JLabel adviceLabel = new JLabel(adviceStr);
+				adviceLabel.setFont(font);
+				frame.add(adviceLabel);
+				adviceLabel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+
+				
+			//	frame.setLayout();
+				frame.pack();
 			}
 
 		}
