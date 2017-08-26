@@ -1,17 +1,21 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.util.*;
 
 import javax.swing.*;
 
 public class SimpleFirstGUi extends JFrame {
 		
-		JFrame frame = new JFrame("Спєц-проєкт)");
+public static  JFrame frame = new JFrame("Спєц-проєкт)");
 		
 		JPasswordField passwordField = new JPasswordField();
 		JTextField minutesNumberField = new JTextField("Введіть кількість хвилин...");
 		JLabel defisLabel = new JLabel("-------------------------------------");
 		JLabel eastDefisLabel = new JLabel("-------------------------------------");
+		
+		Font font = new Font("Georgia", Font.PLAIN, 11);
 		
 		JButton toBlockButton = new JButton("Заблокувати вікно");
 		Color color = toBlockButton.getBackground();
@@ -22,7 +26,8 @@ public class SimpleFirstGUi extends JFrame {
 		JButton selfOpinionButton = new JButton("<html>Відправлю <p> по-своєму!<html>");
 		JButton paintButton = new JButton("<html>Намалювати<p>автопортрет!<html>");
 		JButton exitButton = new JButton("EXIT  →");
-		JButton windowSetButton = new JButton("<html>Set default <p>window size!<html>");
+		JButton windowSetButton = new JButton("<html>Встановити<p>нормальний розмір!<html>");
+		JButton beatBoxGuiButton = new JButton("Відкрити BeatBox");
 		
 		JLabel specialFunctionsLabel = new JLabel("       Заблокувати вікно");
 		JLabel sentMessageLabel = new JLabel("<html>Відправити<p>повідомлення через: <html>");
@@ -119,24 +124,52 @@ public class SimpleFirstGUi extends JFrame {
 		exitButton.setBounds(610, 320, 150, 40);
 		windowSetButton.setBounds(610, 270, 150, 40);
 		
+	/** Центральна частина */
+		frame.add(beatBoxGuiButton);
+		
+	/** Налаштовуємо кординацію по центру*/	
+		beatBoxGuiButton.setBounds(300, 20, 200, 20);
+		
+	/** Налаштовую шрифт розміток*/
+		specialFunctionsLabel.setFont(font);
+		sentMessageLabel.setFont(font);
+		optionLabel.setFont(font);
+		entertainmentLabel.setFont(font);
+			
+		
 	/** Налаштовую дієздатність кнопок */	
 		toBlockButton.addActionListener(new toBlockButtonEventListener());	
 	    passwordButton.addActionListener(new passwordButtonEventListener());
 		snakeButton.addActionListener(new snakeButtonEventListener());
 		paintButton.addActionListener(new paintButtonEventListener());
+		exitButton.addActionListener(new exitButtonEventListener());
+		windowSetButton.addActionListener(new windowSetButtonEventListener());
+		beatBoxGuiButton.addActionListener(new beatBoxGuiButtonEventListener());
 		
 	/** Налаштовую Час та Дату, їх розміщення */
 		do {
-			LocalDateTime timeDate = LocalDateTime.now();
-			JLabel timeLabel = new JLabel(timeDate.toString());
+			Font font = new Font("Verdana", Font.PLAIN, 11);
+			Date date = new Date();
+			SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+			
+			JLabel timeLabel = new JLabel(String.format("%tA, %<tr",date));
+			JLabel dateLabel = new JLabel(dateFormat.format(date));
+			
+		//	timeLabel.setIcon(new ImageIcon("clockIcon"));
+			timeLabel.setFont(font);
 			frame.add(timeLabel);
-			timeLabel.setBounds(300, 475, 150, 25);
+			timeLabel.setBounds(20, 475, 200, 25);
+			
+			dateLabel.setFont(font);
+			frame.add(dateLabel);
+			dateLabel.setBounds(690, 475, 200, 25);
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				System.out.println("Так собі поток!");
 			};
 			timeLabel.setVisible(false);
+			dateLabel.setVisible(false);
 		}while(true);
 		
 		
@@ -205,6 +238,26 @@ public class SimpleFirstGUi extends JFrame {
 			new GameSnake().go();
 			}
 		}
+		
+		public class exitButtonEventListener implements ActionListener {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+			}
+
+		}
+
+		public class windowSetButtonEventListener implements ActionListener {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				   frame.setExtendedState(JFrame.NORMAL);          
+			}
+
+		}
+
+
 	
 }
 

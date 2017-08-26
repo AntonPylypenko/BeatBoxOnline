@@ -7,7 +7,7 @@ public class Main {
 
 	//	new BeatBoxGUI(); 
 		
-		new SimpleFirstGUi();
+ 	new SimpleFirstGUi();
 		
 	/*	if (registrationButtonEventListener.file.exists()) {
 			new Authorization();
@@ -17,3 +17,4 @@ public class Main {
 	}
 }
 
+  
