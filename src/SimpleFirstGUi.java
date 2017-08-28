@@ -4,8 +4,9 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.math.*;
-
 import javax.swing.*;
+
+import Server.*;
 
 public class SimpleFirstGUi extends JFrame {
 		
@@ -13,6 +14,7 @@ public static  JFrame frame = new JFrame("Спєц-проєкт)");
 		
 		JPasswordField passwordField = new JPasswordField();
 		JTextField minutesNumberField = new JTextField("Введіть кількість хвилин...");
+		JTextField messageField = new JTextField("Введіть повідомлення...");
 		JLabel defisLabel = new JLabel("-------------------------------------");
 		JLabel eastDefisLabel = new JLabel("-------------------------------------");
 		
@@ -30,6 +32,7 @@ public static  JFrame frame = new JFrame("Спєц-проєкт)");
 		JButton windowSetButton = new JButton("<html>Встановити<p>нормальний розмір!<html>");
 		JButton beatBoxGuiButton = new JButton("Відкрити BeatBox");
 		JButton adviceButton = new JButton("Я щось хочу від життя, дай пораду для мого буття!");
+		JButton sentButton = new JButton("Відправити!");
 		
 		JLabel specialFunctionsLabel = new JLabel("       Заблокувати вікно");
 		JLabel sentMessageLabel = new JLabel("<html>Відправити<p>повідомлення через: <html>");
@@ -129,10 +132,14 @@ public static  JFrame frame = new JFrame("Спєц-проєкт)");
 	/** Центральна частина */
 		frame.add(beatBoxGuiButton);
 		frame.add(adviceButton);
+		frame.add(messageField);
+		frame.add(sentButton);
 		
 	/** Налаштовуємо кординацію по центру*/	
 		beatBoxGuiButton.setBounds(300, 20, 200, 20);
 		adviceButton.setBounds(200, 475, 380, 25);
+		messageField.setBounds(200, 400, 380, 25);
+		sentButton.setBounds(200, 430, 380, 25);
 		
 	/** Налаштовую шрифт розміток*/
 		specialFunctionsLabel.setFont(font);
@@ -150,6 +157,7 @@ public static  JFrame frame = new JFrame("Спєц-проєкт)");
 		windowSetButton.addActionListener(new windowSetButtonEventListener());
 		beatBoxGuiButton.addActionListener(new beatBoxGuiButtonEventListener());
 		adviceButton.addActionListener(new adviceButtonEventListener());
+		sentButton.addActionListener(new sentButtonEventListener());
 		
 	/** Налаштовую Час та Дату, їх розміщення */
 		do {
@@ -282,6 +290,14 @@ public static  JFrame frame = new JFrame("Спєц-проєкт)");
 
 		}
 
+		public class sentButtonEventListener implements ActionListener {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				new BeatBoxClient(messageField.getText());
+			}
+
+		}
 
 	
 }

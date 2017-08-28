@@ -23,8 +23,10 @@ class BeatBoxServerClient implements Runnable {
 		reader.close();
 		
 		File file = new File("dialog.txt"); 
-		PrintWriter writer = new PrintWriter(file);
-		writer.println(message); // занотовую повідомлення
+		PrintWriter printWriter = new PrintWriter(file);
+		BufferedWriter writer = new BufferedWriter(printWriter);
+		writer.write(message); // занотовую повідомлення
+		writer.newLine();      // перехід на нову строку
 		System.out.println(message);
 		
 		writer.flush();
