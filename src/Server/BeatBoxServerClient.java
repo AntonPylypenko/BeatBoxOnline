@@ -20,12 +20,15 @@ class BeatBoxServerClient implements Runnable {
 		InputStreamReader streamReader = new InputStreamReader(socket.getInputStream());
 		BufferedReader reader = new BufferedReader(streamReader); 
 		message = reader.readLine();
+		reader.close();
 		
 		File file = new File("dialog.txt"); 
 		PrintWriter writer = new PrintWriter(file);
 		writer.println(message); // занотовую повідомлення
-		
 		System.out.println(message);
+		
+		writer.flush();
+		writer.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
