@@ -22,7 +22,7 @@ public class BeatBoxGUI extends JFrame {
 	
 	public BeatBoxGUI(){
 		
-		frame.setSize(800, 555);
+		frame.setSize(800, 555); 
 		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null); //розміщає фрейм по центру
