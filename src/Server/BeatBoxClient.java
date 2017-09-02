@@ -14,7 +14,7 @@ public class BeatBoxClient {
 			writer.flush();
 			writer.close();
 		}catch(IOException e) {
-			System.out.println("Output problem(");
+			System.out.println("Output problem(((");
 		}
 	}
 }
