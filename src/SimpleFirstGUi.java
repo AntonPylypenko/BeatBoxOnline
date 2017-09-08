@@ -33,6 +33,7 @@ public static  JFrame frame = new JFrame("Спєц-проєкт)");
 		JButton beatBoxGuiButton = new JButton("Відкрити BeatBox");
 		JButton adviceButton = new JButton("Я щось хочу від життя, дай пораду для мого буття!");
 		JButton sentButton = new JButton("Відправити!");
+		JButton sortMessageButton = new JButton("<html>Сортанути <p> повідомляшки за <p> алфавітом!<html>");
 		
 		JLabel specialFunctionsLabel = new JLabel("       Заблокувати вікно");
 		JLabel sentMessageLabel = new JLabel("<html>Відправити<p>повідомлення через: <html>");
@@ -120,14 +121,18 @@ public static  JFrame frame = new JFrame("Спєц-проєкт)");
 		frame.add(eastDefisLabel);
 		frame.add(exitButton);
 		frame.add(windowSetButton);
+	/** Нижня східна частина */	
+		frame.add(sortMessageButton);
 		
 	/** Налаштовуємо координацію на сході*/
 		entertainmentLabel.setBounds(610, 20, 150, 25);
 		snakeButton.setBounds(610, 50, 150, 25);
 		paintButton.setBounds(610, 80, 150, 50);
 		eastDefisLabel.setBounds(610, 135, 150, 25);
-		exitButton.setBounds(610, 320, 150, 40);
 		windowSetButton.setBounds(610, 270, 150, 40);
+		exitButton.setBounds(610, 320, 150, 40);
+		sortMessageButton.setBounds(610, 370, 150, 85);
+		
 		
 	/** Центральна частина */
 		frame.add(beatBoxGuiButton);
@@ -158,6 +163,16 @@ public static  JFrame frame = new JFrame("Спєц-проєкт)");
 		beatBoxGuiButton.addActionListener(new beatBoxGuiButtonEventListener());
 		adviceButton.addActionListener(new adviceButtonEventListener());
 		sentButton.addActionListener(new sentButtonEventListener());
+		
+		toBlockButton.setFont(font);
+		passwordButton.setFont(font);
+		snakeButton.setFont(font);
+		paintButton.setFont(font);
+	//	exitButton.setFont(font);
+	//	windowSetButton.setFont(font);
+		beatBoxGuiButton.setFont(font);
+		adviceButton.setFont(font);
+		sentButton.setFont(font);
 		
 	/** Налаштовую Час та Дату, їх розміщення */
 		do {
